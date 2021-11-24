@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./bootstrap.js":
-/*!**********************!*\
-  !*** ./bootstrap.js ***!
-  \**********************/
+/***/ "./src/bootstrap.js":
+/*!**************************!*\
+  !*** ./src/bootstrap.js ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("// A dependency graph that contains any wasm must all be imported\n// asynchronously. This `bootstrap.js` file does the single async import, so\n// that no one else needs to worry about it again.\n__webpack_require__.e(/*! import() */ \"index_js\").then(__webpack_require__.bind(__webpack_require__, /*! ./index.js */ \"./index.js\"))\n  .catch(e => console.error(\"Error importing `index.js`:\", e));\n\n\n//# sourceURL=webpack://andrews-chess-engine-web/./bootstrap.js?");
+eval("// A dependency graph that contains any wasm must all be imported\n// asynchronously. This `bootstrap.js` file does the single async import, so\n// that no one else needs to worry about it again.\n__webpack_require__.e(/*! import() */ \"src_index_js\").then(__webpack_require__.bind(__webpack_require__, /*! ./index.js */ \"./src/index.js\"))\n  .catch(e => console.error(\"Error importing `index.js`:\", e));\n\n\n//# sourceURL=webpack://andrews-chess-engine-web/./src/bootstrap.js?");
 
 /***/ })
 
@@ -303,17 +303,17 @@ eval("// A dependency graph that contains any wasm must all be imported\n// asyn
 /******/ 			"./node_modules/wasm-andrews-chess-engine/andrews_chess_engine_bg.wasm": function() {
 /******/ 				return {
 /******/ 					"./andrews_chess_engine_bg.js": {
-/******/ 						"__wbindgen_json_parse": function(p0i32,p1i32) {
+/******/ 						"__wbindgen_object_drop_ref": function(p0i32) {
 /******/ 							if(wasmImportedFuncCache0 === undefined) wasmImportedFuncCache0 = __webpack_require__.c["./node_modules/wasm-andrews-chess-engine/andrews_chess_engine_bg.js"].exports;
-/******/ 							return wasmImportedFuncCache0["__wbindgen_json_parse"](p0i32,p1i32);
+/******/ 							return wasmImportedFuncCache0["__wbindgen_object_drop_ref"](p0i32);
+/******/ 						},
+/******/ 						"__wbindgen_json_parse": function(p0i32,p1i32) {
+/******/ 							if(wasmImportedFuncCache1 === undefined) wasmImportedFuncCache1 = __webpack_require__.c["./node_modules/wasm-andrews-chess-engine/andrews_chess_engine_bg.js"].exports;
+/******/ 							return wasmImportedFuncCache1["__wbindgen_json_parse"](p0i32,p1i32);
 /******/ 						},
 /******/ 						"__wbindgen_json_serialize": function(p0i32,p1i32) {
-/******/ 							if(wasmImportedFuncCache1 === undefined) wasmImportedFuncCache1 = __webpack_require__.c["./node_modules/wasm-andrews-chess-engine/andrews_chess_engine_bg.js"].exports;
-/******/ 							return wasmImportedFuncCache1["__wbindgen_json_serialize"](p0i32,p1i32);
-/******/ 						},
-/******/ 						"__wbindgen_object_drop_ref": function(p0i32) {
 /******/ 							if(wasmImportedFuncCache2 === undefined) wasmImportedFuncCache2 = __webpack_require__.c["./node_modules/wasm-andrews-chess-engine/andrews_chess_engine_bg.js"].exports;
-/******/ 							return wasmImportedFuncCache2["__wbindgen_object_drop_ref"](p0i32);
+/******/ 							return wasmImportedFuncCache2["__wbindgen_json_serialize"](p0i32,p1i32);
 /******/ 						},
 /******/ 						"__wbindgen_throw": function(p0i32,p1i32) {
 /******/ 							if(wasmImportedFuncCache3 === undefined) wasmImportedFuncCache3 = __webpack_require__.c["./node_modules/wasm-andrews-chess-engine/andrews_chess_engine_bg.js"].exports;
@@ -325,7 +325,7 @@ eval("// A dependency graph that contains any wasm must all be imported\n// asyn
 /******/ 		};
 /******/ 		
 /******/ 		var wasmModuleMap = {
-/******/ 			"index_js": [
+/******/ 			"src_index_js": [
 /******/ 				"./node_modules/wasm-andrews-chess-engine/andrews_chess_engine_bg.wasm"
 /******/ 			]
 /******/ 		};
@@ -346,7 +346,7 @@ eval("// A dependency graph that contains any wasm must all be imported\n// asyn
 /******/ 					promises.push(installedWasmModuleData);
 /******/ 				else {
 /******/ 					var importObject = wasmImportObjects[wasmModuleId]();
-/******/ 					var req = fetch(__webpack_require__.p + "" + {"index_js":{"./node_modules/wasm-andrews-chess-engine/andrews_chess_engine_bg.wasm":"6a1eca180fdebdc41510"}}[chunkId][wasmModuleId] + ".module.wasm");
+/******/ 					var req = fetch(__webpack_require__.p + "" + {"src_index_js":{"./node_modules/wasm-andrews-chess-engine/andrews_chess_engine_bg.wasm":"8803fdd47132550842c9"}}[chunkId][wasmModuleId] + ".module.wasm");
 /******/ 					var promise;
 /******/ 					if(importObject && typeof importObject.then === 'function' && typeof WebAssembly.compileStreaming === 'function') {
 /******/ 						promise = Promise.all([WebAssembly.compileStreaming(req), importObject]).then(function(items) {
@@ -373,7 +373,7 @@ eval("// A dependency graph that contains any wasm must all be imported\n// asyn
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	var __webpack_exports__ = __webpack_require__("./bootstrap.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/bootstrap.js");
 /******/ 	
 /******/ })()
 ;
