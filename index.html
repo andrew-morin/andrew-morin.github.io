@@ -1,30 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Andrew's Chess Engine</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <noscript
-      >This page contains webassembly and javascript content, please enable
-      javascript in your browser.</noscript
-    >
-    <script src="./bootstrap.js"></script>
-    <div>
-      <table class="board">
-        <tbody>
-          <tr id="rankIndex0"></tr>
-          <tr id="rankIndex1"></tr>
-          <tr id="rankIndex2"></tr>
-          <tr id="rankIndex3"></tr>
-          <tr id="rankIndex4"></tr>
-          <tr id="rankIndex5"></tr>
-          <tr id="rankIndex6"></tr>
-          <tr id="rankIndex7"></tr>
-        </tbody>
-      </table>
-      <div id="promotionPieces"></div>
-    </div>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-bottom: 24px;
+    }
+    a {
+      display: block;
+      font-size: 20px;
+      margin: 12px 0;
+      text-decoration: none;
+      color: #0066cc;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Game Hub</h1>
+    <a href="chess">Play Chess</a>
+  </div>
+</body>
 </html>
+
