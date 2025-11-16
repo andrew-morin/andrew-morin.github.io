@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alphabet Reaction Game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Alphabet Reaction Game</h1>
+
+  <div id="instructions">
+    <h2>How to Play</h2>
+    <p>Two letters of the alphabet will appear. Select the letter that comes <strong>later</strong> in the alphabet.</p>
+    <ul>
+      <li>Click or press <strong>F</strong> for the <strong>left letter</strong>.</li>
+      <li>Click or press <strong>J</strong> for the <strong>right letter</strong>.</li>
+      <li><strong>Timed Mode:</strong> Get as many correct as possible in 30 seconds. Wrong answers lose points.</li>
+      <li><strong>Perfect Mode:</strong> Get 10 correct in a row as fast as possible without mistakes.</li>
+      <li>Use the <strong>Stop Game</strong> button to end early and reset the game.</li>
+    </ul>
+  </div>
+
+  <div class="mode-select" id="modeSelect">
+    <button id="timedBtn">30s Timed Mode</button>
+    <button id="perfectBtn">10 Perfect Mode</button>
+  </div>
+
+  <button id="stopBtn" class="hidden">Stop Game</button>
+
+  <div id="countdown" class="hidden"></div>
+
+  <div id="game" class="hidden">
+    <div id="letters"></div>
+    <div class="choices" class="hidden">
+      <button id="choiceA"></button>
+      <button id="choiceB"></button>
+    </div>
+    <div id="stats"></div>
+  </div>
+
+  <script src="sounds.js"></script>
+  <script src="leaderboard.js"></script>
+  <script src="themes.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
