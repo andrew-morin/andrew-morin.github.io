@@ -8,6 +8,7 @@ let timerInterval = null;
 let timeLeft = 30;
 let currentPair = [];
 let countdownInterval = null;
+let letterRule = "second";
 
 const gameEl = document.getElementById("game");
 const timedBtn = document.getElementById("timedBtn");
@@ -37,6 +38,7 @@ function newRound() {
 
 function startTimed() {
   document.getElementById("instructions").classList.add("hidden");
+  document.getElementById("letterRuleSelect").classList.add("hidden");
   mode = "timed";
   score = 0;
   timeLeft = 30;
@@ -50,7 +52,8 @@ function startTimed() {
 }
 
 function startPerfect() {
-  document.getElementById("instructions").classList.add("hidden"); // hide instructions
+  document.getElementById("instructions").classList.add("hidden");
+  document.getElementById("letterRuleSelect").classList.add("hidden");
   mode = "perfect";
   correct = 0;
 
@@ -90,8 +93,14 @@ function updateTimed() {
   }
 }
 
+function getCorrectLetter(pair) {
+  const [a, b] = pair;
+  const sorted = [a, b].sort();
+  return letterRule === "second" ? sorted[1] : sorted[0];
+}
+
 function choose(letter) {
-  const correctLetter = currentPair[0] < currentPair[1] ? currentPair[1] : currentPair[0];
+  const correctLetter = getCorrectLetter(currentPair);
   const isCorrect = letter === correctLetter;
 
   if (mode === "timed") {
@@ -114,6 +123,7 @@ document.getElementById("stopBtn").onclick = () => {
   document.getElementById("countdown").classList.add("hidden");
   document.getElementById("modeSelect").classList.remove("hidden");
   document.getElementById("instructions").classList.remove("hidden");
+  document.getElementById("letterRuleSelect").classList.remove("hidden");
 };
 
 function resetUI() {
@@ -129,26 +139,32 @@ function resetUI() {
   mode = null;
 }
 
+function ruleLabel() {
+  return letterRule === "second"
+    ? "Pick 2nd Letter"
+    : "Pick 1st Letter";
+}
+
 function endGame(success = null) {
   const finishedMode = mode;   // save current mode before clearing
   resetUI();                   // now clears mode, timers, letters, etc.
 
   // show result message depending on the saved mode
   if (finishedMode === "timed") {
-    statsEl.textContent = `Time's up! Final Score: ${score}`;
+    statsEl.textContent = `Time's up! Final Score: ${score} (${ruleLabel()})`;
   } else if (finishedMode === "perfect") {
     if (success) {
       const totalTime = ((Date.now() - startTime) / 1000).toFixed(2);
-      statsEl.textContent = `You did it! 10 correct in ${totalTime}s`;
+      statsEl.textContent = `You did it! 10 correct in ${totalTime}s (${ruleLabel()})`;
     } else {
-      statsEl.textContent = `Missed one! Try again.`;
+      statsEl.textContent = `Missed one! Try again. (${ruleLabel()})`;
     }
   }
 
-  // restore start buttons, hide stop button
   document.getElementById("modeSelect").classList.remove("hidden");
   document.getElementById("stopBtn").classList.add("hidden");
-  document.getElementById("instructions").classList.remove("hidden"); // show instructions again
+  document.getElementById("instructions").classList.remove("hidden");
+  document.getElementById("letterRuleSelect").classList.remove("hidden");
 }
 
 choiceA.onclick = () => choose(choiceA.textContent);
@@ -164,6 +180,12 @@ perfectBtn.onclick = () => {
   document.getElementById("stopBtn").classList.remove("hidden");
   startPerfect();
 };
+
+document.querySelectorAll('input[name="letterRule"]').forEach(r => {
+  r.addEventListener("change", (e) => {
+    letterRule = e.target.value; // "first" or "second"
+  });
+});
 
 // ------------------------------
 // Keyboard Controls: F = Left, J = Right
